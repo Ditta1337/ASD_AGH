@@ -29,9 +29,7 @@ def calculate(T_tab, Tp_tab, data, T):
             if Tp_tab[ind] + data[i][1] < min_val_Tp:
                 min_val_Tp = Tp_tab[ind] + data[i][1]
 
-        T_tab[i] = min_val_T
-
-        for k in range(2 * T):
+        for k in range(1, 2 * T):
             ind  = i - k
             if ind < 0 or data[ind][0] < data[i][0] - 2 * T:
                 break
@@ -44,7 +42,6 @@ def calculate(T_tab, Tp_tab, data, T):
 
 
 def min_cost( O, C, T, L ):
-
     if 2 * T >= L:
         return 0
 
@@ -59,12 +56,6 @@ def min_cost( O, C, T, L ):
     T_tab[0] = 0
 
     calculate(T_tab, Tp_tab, data, T)
-
-    #print(T_tab)
-    #print(Tp_tab)
-
-    
-
 
     return Tp_tab[-1]
 
